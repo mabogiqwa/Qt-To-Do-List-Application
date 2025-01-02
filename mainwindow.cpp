@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget *sidebar = new QWidget(this);
     sidebar->setFixedWidth(250);
     QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
+    sidebarLayout->setSpacing(0);
+    sidebarLayout->setContentsMargins(0,0,0,0);
 
     QWidget *searchWidget = new QWidget(sidebar);
     QHBoxLayout *searchLayout = new QHBoxLayout(searchWidget);
@@ -19,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLineEdit *searchInput = new QLineEdit(searchWidget);
     searchInput->setPlaceholderText("Search");
-    searchInput->setFixedWidth(230);
+    searchInput->setFixedWidth(250);
     searchInput->setFixedHeight(30);
 
     searchLayout->addWidget(searchInput);
@@ -50,8 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     menuList->setStyleSheet(
         "QListWidget::item {"
-        "   height: 20px;"  // Adjust height
-        "   padding: 10px;" // Add padding
+        "   height: 20px;"
+        "   padding: 10px;"
         "   font-size: 16px;"
         "   color: white;"
         "}"
@@ -66,6 +68,12 @@ MainWindow::MainWindow(QWidget *parent)
     // Main content area
     QWidget *contentArea = new QWidget(this);
     QVBoxLayout *contentLayout = new QVBoxLayout(contentArea);
+
+    contentArea->setStyleSheet("background-image: url('C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/images/nature theme 3.jpg');"
+                               "background-repeat: no-repeat;"
+                               "background-position: center;"
+                               "background-size: 500px 500px;");
+
     QLabel *contentLabel = new QLabel("Main Content Area", contentArea);
     contentLabel->setAlignment(Qt::AlignCenter);
     contentLayout->addWidget(contentLabel);
@@ -77,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     splitter->setStretchFactor(1, 1);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(centralWidget);
+    mainLayout->setContentsMargins(0,0,0,0);
     mainLayout->addWidget(splitter);
 
     connect(menuList, &QListWidget::currentRowChanged, [contentLabel](int currentRow) {
