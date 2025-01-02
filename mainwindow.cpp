@@ -20,9 +20,9 @@ MainWindow::MainWindow(QWidget *parent)
     searchLayout->setContentsMargins(0,0,0,0);
 
     QLineEdit *searchInput = new QLineEdit(searchWidget);
-    searchInput->setPlaceholderText("Search");
+    searchInput->setPlaceholderText("Search for task");
     searchInput->setFixedWidth(250);
-    searchInput->setFixedHeight(30);
+    searchInput->setFixedHeight(40);
 
     searchLayout->addWidget(searchInput);
     searchWidget->setLayout(searchLayout);
@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QListWidget *menuList = new QListWidget(sidebar);
 
+    //Items definition
     QListWidgetItem *myDayItem = new QListWidgetItem("My Day");
     QFont font = myDayItem->font();
     font.setPointSize(14);

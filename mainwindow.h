@@ -24,7 +24,6 @@ public:
     ~MainWindow();
 private:
     QSize sizeHint() const;
-    void addMenuItem(const QString &text, const QString &iconPath);
 
 };
 #endif // MAINWINDOW_H
