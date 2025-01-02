@@ -13,6 +13,7 @@
 #include <QStyle>
 #include <QIcon>
 #include <QAction>
+#include <QFont>
 
 class MainWindow : public QMainWindow
 {

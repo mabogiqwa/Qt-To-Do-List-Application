@@ -34,15 +34,27 @@ MainWindow::MainWindow(QWidget *parent)
     QListWidget *menuList = new QListWidget(sidebar);
 
     QListWidgetItem *myDayItem = new QListWidgetItem("My Day");
+    QFont font = myDayItem->font();
+    font.setPointSize(14);
+    myDayItem->setFont(font);
     myDayItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/sun icon.png"));
 
     QListWidgetItem *importantItem = new QListWidgetItem("Important");
+    QFont font1 = importantItem->font();
+    font1.setPointSize(14);
+    importantItem->setFont(font1);
     importantItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/star icon.png"));
 
     QListWidgetItem *tasksItem = new QListWidgetItem("Tasks");
+    QFont font2 = tasksItem->font();
+    font2.setPointSize(14);
+    tasksItem->setFont(font2);
     tasksItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/home icon.jpg"));
 
     QListWidgetItem *groceryItem = new QListWidgetItem("Groceries");
+    QFont font3 = groceryItem->font();
+    font3.setPointSize(14);
+    groceryItem->setFont(font3);
     groceryItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/grocery icon.png"));
 
     menuList->addItem(myDayItem);
@@ -54,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
         "QListWidget::item {"
         "   height: 20px;"
         "   padding: 10px;"
-        "   font-size: 16px;"
+        "   font-size: 18px;"
         "   color: white;"
         "}"
         );
