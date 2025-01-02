@@ -10,6 +10,9 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QSplitter>
+#include <QStyle>
+#include <QIcon>
+#include <QAction>
 
 class MainWindow : public QMainWindow
 {

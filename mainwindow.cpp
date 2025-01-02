@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    setWindowTitle("TodoMate Application");
+    setWindowTitle("To-Do List Application");
 
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
@@ -15,12 +15,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     QWidget *searchWidget = new QWidget(sidebar);
     QHBoxLayout *searchLayout = new QHBoxLayout(searchWidget);
+    searchLayout->setContentsMargins(0,0,0,0);
+
     QLineEdit *searchInput = new QLineEdit(searchWidget);
     searchInput->setPlaceholderText("Search");
-    searchInput->setFixedWidth(250);
+    searchInput->setFixedWidth(230);
     searchInput->setFixedHeight(30);
+
     searchLayout->addWidget(searchInput);
     searchWidget->setLayout(searchLayout);
+
+    QAction *searchAction = new QAction(searchInput);
+    searchAction->setIcon(style()->standardIcon(QStyle::SP_FileDialogContentsView));
+    searchInput->addAction(searchAction, QLineEdit::TrailingPosition);
 
     QListWidget *menuList = new QListWidget(sidebar);
 
@@ -31,10 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
     importantItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/star icon.png"));
 
     QListWidgetItem *tasksItem = new QListWidgetItem("Tasks");
-    tasksItem->setIcon(QIcon(":/icons/home icon.jpg"));
+    tasksItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/home icon.jpg"));
 
     QListWidgetItem *groceryItem = new QListWidgetItem("Groceries");
-    groceryItem->setIcon(QIcon(":/icons/shopping icon.png"));
+    groceryItem->setIcon(QIcon("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/grocery icon.png"));
 
     menuList->addItem(myDayItem);
     menuList->addItem(importantItem);
