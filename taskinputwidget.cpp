@@ -9,6 +9,13 @@ TaskInputWidget::TaskInputWidget(QWidget *parent, QLabel *existingImage)
 void TaskInputWidget::setupUI() {
     mainLayout = new QVBoxLayout(this);
 
+    setAttribute(Qt::WA_TranslucentBackground);
+    setAutoFillBackground(false);
+
+    this->setStyleSheet(
+        "background: transparent"
+        );
+
     inputField = new QLineEdit(this);
     inputField->setPlaceholderText("Try typing 'Pay electricity bill by Friday 6pm'");
     inputField->setStyleSheet(
@@ -16,7 +23,7 @@ void TaskInputWidget::setupUI() {
         "   padding: 10px;"
         "   padding-left: 40px;"
         "   border-radius: 20px;"
-        "   background-color: rgba(0,0,0,0.5);"
+        "   background-color: rgba(255,255,255,0.2);"
         "   color: white;"
         "   font-size: 14px;"
         "}"
@@ -27,6 +34,12 @@ void TaskInputWidget::setupUI() {
                 "QListWidget {"
                 "   background: transparent;"
                 "   border: none;"
+                "   color: white;"
+                "}"
+                "QListWidget::item {"
+                "   background: rgba(0, 0, 0, 0.3);"  // Semi-transparent dark background for items
+                "   border-radius: 10px;"
+                "   margin-top: 2px;"
                 "}"
     );
 

@@ -109,7 +109,10 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->move(200,200);
 
     TaskInputWidget *taskInput = new TaskInputWidget(contentArea, imageLabel);
-    taskInput->move(200,50);
+    taskInput->setAttribute(Qt::WA_TranslucentBackground);
+    taskInput->setAutoFillBackground(false);
+    taskInput->move(40,490);
+    taskInput->resize(560,150);
 
     // Layout: Sidebar and Content
     QSplitter *splitter = new QSplitter(Qt::Horizontal, this);
