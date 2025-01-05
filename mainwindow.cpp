@@ -1,6 +1,7 @@
 #include "mainwindow.h"
+#include "taskinputwidget.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent, QLabel *existingImage)
     : QMainWindow(parent)
 {
     setWindowTitle("To-Do List Application");
@@ -107,18 +108,8 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setStyleSheet("QLabel { background: transparent; }");
     imageLabel->move(200,200);
 
-    /*
-    //Content Area title
-    QLabel *titleLabel = new QLabel("My Day", contentArea);
-    QFont titleFont = titleLabel->font();
-    titleFont.setPointSize(24);
-    titleFont.setBold(true);
-    titleLabel->setFont(titleFont);
-    titleLabel->setStyleSheet("color: white; margin: 10px;");
-    titleLabel->setAlignment(Qt::AlignLeft);
-
-    //contentLayout->addWidget(titleLabel);
-    */
+    TaskInputWidget *taskInput = new TaskInputWidget(contentArea, imageLabel);
+    taskInput->move(200,50);
 
     // Layout: Sidebar and Content
     QSplitter *splitter = new QSplitter(Qt::Horizontal, this);
