@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "taskinputwidget.h"
 
-MainWindow::MainWindow(QWidget *parent, QLabel *existingImage)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     setWindowTitle("To-Do List Application");

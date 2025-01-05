@@ -1,6 +1,6 @@
 #include "taskinputwidget.h"
 
-TaskInputWidget::TaskInputWidget(QWidget *parent)
+TaskInputWidget::TaskInputWidget(QWidget *parent, QLabel *existingImage)
     : QWidget{parent}, placeholderImage(existingImage)
 {
     setupUI();
@@ -43,7 +43,7 @@ void TaskInputWidget::handleTaskInput() {
         taskList->addItem(item);
         inputField->clear();
 
-        if (taskList->count() == 1 && existingImageLabel) {
+        if (taskList->count() == 1 && placeholderImage) {
             placeholderImage->hide();
         }
 
