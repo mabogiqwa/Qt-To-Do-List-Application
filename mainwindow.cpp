@@ -73,29 +73,61 @@ MainWindow::MainWindow(QWidget *parent)
         );
 
     QPushButton *logoutButton = new QPushButton("Exit",sidebar);
-
     sidebarLayout->addWidget(searchWidget);
     sidebarLayout->addWidget(menuList);
     sidebarLayout->addWidget(logoutButton);
 
     // Main content area
     QWidget *contentArea = new QWidget(this);
-    QVBoxLayout *contentLayout = new QVBoxLayout(contentArea);
+    //QVBoxLayout *contentLayout = new QVBoxLayout(contentArea);
+
+    QLabel *contentLabel = new QLabel(contentArea);
+    contentLabel->resize(150,30);
+    contentLabel->move(35,45);
+    contentLabel->setStyleSheet("QLabel { background: transparent; color: white; font-size: 15px; }");
+    QDate currentDate = QDate::currentDate();
+    QString dateString = currentDate.toString("dddd, MMMM d");
+    contentLabel->setText(dateString);
+
+    QLabel *title = new QLabel("My Day",contentArea);
+    title->resize(200,50);
+    title->move(35,5);
+    title->setStyleSheet("QLabel {background: transparent; color: white; font-size: 28px; font-weight: bold; }");
 
     contentArea->setStyleSheet("background-image: url('C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/images/nature theme 3.jpg');"
                                "background-repeat: no-repeat;"
                                "background-position: center;"
                                "background-size: 500px 500px;");
 
-    QLabel *contentLabel = new QLabel("Main Content Area", contentArea);
-    contentLabel->setAlignment(Qt::AlignCenter);
-    contentLayout->addWidget(contentLabel);
+    QLabel *imageLabel = new QLabel(contentArea);
+    QPixmap pixmap("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/center.png");
+    QPixmap scaledImage = pixmap.scaled(250,200,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    imageLabel->setPixmap(scaledImage);
+    imageLabel->resize(scaledImage.size());
+    imageLabel->setStyleSheet("QLabel { background: transparent; }");
+    imageLabel->move(200,200);
+
+    /*
+    //Content Area title
+    QLabel *titleLabel = new QLabel("My Day", contentArea);
+    QFont titleFont = titleLabel->font();
+    titleFont.setPointSize(24);
+    titleFont.setBold(true);
+    titleLabel->setFont(titleFont);
+    titleLabel->setStyleSheet("color: white; margin: 10px;");
+    titleLabel->setAlignment(Qt::AlignLeft);
+
+    //contentLayout->addWidget(titleLabel);
+    */
 
     // Layout: Sidebar and Content
     QSplitter *splitter = new QSplitter(Qt::Horizontal, this);
     splitter->addWidget(sidebar);
     splitter->addWidget(contentArea);
     splitter->setStretchFactor(1, 1);
+
+    splitter->setHandleWidth(0);
+    splitter->setStyleSheet("QSplitter::handle { background-color: none; }");
 
     QVBoxLayout *mainLayout = new QVBoxLayout(centralWidget);
     mainLayout->setContentsMargins(0,0,0,0);
@@ -113,7 +145,7 @@ MainWindow::MainWindow(QWidget *parent)
             contentLabel->setText("This is the 'Tasks' section.");
             break;
         default:
-            contentLabel->setText("Main Content Area");
+            contentLabel->setText("My Day");
             break;
         }
     });

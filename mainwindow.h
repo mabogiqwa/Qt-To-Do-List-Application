@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QApplication>
 #include <QListWidget>
-#include <QStackedWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -14,6 +13,11 @@
 #include <QIcon>
 #include <QAction>
 #include <QFont>
+#include <QFormLayout>
+#include <QDateEdit>
+#include <QComboBox>
+#include <QMessageBox>
+#include <QTextEdit>
 
 class MainWindow : public QMainWindow
 {
