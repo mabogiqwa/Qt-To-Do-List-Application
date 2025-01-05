@@ -127,10 +127,10 @@ MainWindow::MainWindow(QWidget *parent)
     mainLayout->setContentsMargins(0,0,0,0);
     mainLayout->addWidget(splitter);
 
-    connect(menuList, &QListWidget::currentRowChanged, [contentLabel](int currentRow) {
+    connect(menuList, &QListWidget::currentRowChanged, [contentLabel, dateString](int currentRow) {
         switch (currentRow) {
         case 0:
-            contentLabel->setText("This is the 'My Day' section");
+            contentLabel->setText(dateString);
             break;
         case 1:
             contentLabel->setText("This is the 'Important' section.");
