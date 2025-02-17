@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     centralWidget->setStyleSheet("background-color: #2E2E2E;");
 
     QWidget *sidebar = new QWidget(this);
-    sidebar->setFixedWidth(250);
+    sidebar->setFixedWidth(280);
     QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
     sidebarLayout->setSpacing(0);
     sidebarLayout->setContentsMargins(0,0,0,0);
@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLineEdit *searchInput = new QLineEdit(searchWidget);
     searchInput->setPlaceholderText("Search for task");
-    searchInput->setFixedWidth(250);
+    searchInput->setFixedWidth(280);
     searchInput->setFixedHeight(40);
 
     searchLayout->addWidget(searchInput);
@@ -98,7 +98,7 @@ MainWindow::MainWindow(QWidget *parent)
     contentArea->setStyleSheet("background-image: url('C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/images/nature theme 3.jpg');"
                                "background-repeat: no-repeat;"
                                "background-position: center;"
-                               "background-size: 500px 500px;");
+                               "background-size: 800px 800px;");
 
     QLabel *imageLabel = new QLabel(contentArea);
     QPixmap pixmap("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/center.png");
@@ -125,6 +125,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout(centralWidget);
     mainLayout->setContentsMargins(0,0,0,0);
+    mainLayout->setSpacing(0);
     mainLayout->addWidget(splitter);
 
     connect(menuList, &QListWidget::currentRowChanged, [contentLabel, dateString](int currentRow) {
