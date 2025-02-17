@@ -79,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
     sidebarLayout->addWidget(logoutButton);
 
     // Main content area
-    QWidget *contentArea = new QWidget(this);
+    contentArea = new QWidget(this);
     //QVBoxLayout *contentLayout = new QVBoxLayout(contentArea);
 
     QLabel *contentLabel = new QLabel(contentArea);
@@ -149,6 +149,46 @@ MainWindow::MainWindow(QWidget *parent)
 QSize MainWindow::sizeHint() const
 {
     return QSize(900,850);
+}
+
+void MainWindow::setupTasksArea()
+{
+    tasksScrollArea = new QScrollArea(contentArea);
+    tasksScrollArea->setStyleSheet(
+        "QScrollArea {"
+        "   background: transparent;"
+        "   border: none;"
+        "}"
+        "QScrollArea > QWidget > QWidget {"
+        "   background: transparent;"
+        "}"
+        "ScrollBar {"
+        "  background: rgba(255,255,255,0.1);"
+        "  width: 10px;"
+        "}"
+    );
+    tasksScrollArea->setWidgetResizable(true);
+    tasksScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    tasksScrollArea->move(25, 85);
+    tasksScrollArea->resize(560, 390);
+
+    tasksContainer = new QWidget(tasksScrollArea);
+    tasksLayout = new QVBoxLayout(tasksContainer);
+    tasksLayout->setSpacing(5);
+    tasksLayout->setContentsMargins(0,0,0,0);
+    tasksLayout->addStretch();
+
+    tasksScrollArea->setWidget(tasksContainer);
+}
+
+void MainWindow::addNewTask(const QString &taskText)
+{
+
+}
+
+void MainWindow::removeCompletedTask(TaskItemWidget *widget)
+{
+
 }
 
 MainWindow::~MainWindow()

@@ -14,10 +14,12 @@
 #include <QFont>
 #include <QFormLayout>
 #include <QDateEdit>
+#include <QScrollArea>
 #include <QComboBox>
 #include <QMessageBox>
 #include <QTextEdit>
 #include <QMainWindow>
+#include "taskitemwidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -27,7 +29,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private:
+    QWidget *contentArea;
     QSize sizeHint() const;
+    QVBoxLayout *tasksLayout;
+    QWidget *tasksContainer;
+    QScrollArea *tasksScrollArea;
+    void setupTasksArea();
+    void addNewTask(const QString &taskText);
+    void removeCompletedTask(TaskItemWidget* widget);
 
 };
 #endif // MAINWINDOW_H
