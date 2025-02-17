@@ -30,6 +30,7 @@ public:
     ~MainWindow();
 private:
     QWidget *contentArea;
+    QLabel *imageLabel;
     QSize sizeHint() const;
     QVBoxLayout *tasksLayout;
     QWidget *tasksContainer;

@@ -100,7 +100,7 @@ MainWindow::MainWindow(QWidget *parent)
                                "background-position: center;"
                                "background-size: 800px 800px;");
 
-    QLabel *imageLabel = new QLabel(contentArea);
+    imageLabel = new QLabel(contentArea);
     QPixmap pixmap("C:/Users/realm/OneDrive/Documents/QtProjects/todolist2-without-ui/icons/center.png");
     QPixmap scaledImage = pixmap.scaled(250,200,Qt::KeepAspectRatio, Qt::SmoothTransformation);
     imageLabel->setPixmap(scaledImage);
@@ -113,6 +113,9 @@ MainWindow::MainWindow(QWidget *parent)
     taskInput->setAutoFillBackground(false);
     taskInput->move(40,490);
     taskInput->resize(560,150);
+
+    setupTasksArea();
+    connect(taskInput, &TaskInputWidget::taskAdded, this, &MainWindow::addNewTask);
 
     // Layout: Sidebar and Content
     QSplitter *splitter = new QSplitter(Qt::Horizontal, this);
@@ -183,12 +186,30 @@ void MainWindow::setupTasksArea()
 
 void MainWindow::addNewTask(const QString &taskText)
 {
-
+    TaskItemWidget *taskWidget = new TaskItemWidget(taskText, tasksContainer);
+    tasksLayout->insertWidget(tasksLayout->count() - 1, taskWidget);
+    connect(taskWidget, &TaskItemWidget::taskCompleted, this, &MainWindow::removeCompletedTask);
 }
 
 void MainWindow::removeCompletedTask(TaskItemWidget *widget)
 {
+    tasksLayout->removeWidget(widget);
+    widget->deleteLater();
 
+    bool hasVisibleTasks = false;
+    for (int i = 0; i < tasksLayout->count(); i++)
+    {
+        if (QWidget *w = tasksLayout->itemAt(i)->widget()) {
+            if(w->isVisible() && !qobject_cast<TaskItemWidget*>(w)) {
+                hasVisibleTasks = true;
+                break;
+            }
+        }
+    }
+
+    if (!hasVisibleTasks && imageLabel) {
+        imageLabel->show();
+    }
 }
 
 MainWindow::~MainWindow()
