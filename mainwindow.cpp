@@ -137,13 +137,13 @@ MainWindow::MainWindow(QWidget *parent)
             contentLabel->setText(dateString);
             break;
         case 1:
-            contentLabel->setText("This is the 'Important' section.");
+            contentLabel->setText(dateString);
             break;
         case 2:
-            contentLabel->setText("This is the 'Tasks' section.");
+            contentLabel->setText(dateString);
             break;
         default:
-            contentLabel->setText("My Day");
+            contentLabel->setText(dateString);
             break;
         }
     });
