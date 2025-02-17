@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QApplication>
 #include <QListWidget>
 #include <QPushButton>
@@ -18,6 +17,7 @@
 #include <QComboBox>
 #include <QMessageBox>
 #include <QTextEdit>
+#include <QMainWindow>
 
 class MainWindow : public QMainWindow
 {

@@ -31,17 +31,17 @@ void TaskInputWidget::setupUI() {
 
     taskList = new QListWidget(this);
     taskList->setStyleSheet(
-                "QListWidget {"
-                "   background: transparent;"
-                "   border: none;"
-                "   color: white;"
-                "}"
-                "QListWidget::item {"
-                "   background: rgba(0, 0, 0, 0.3);"  // Semi-transparent dark background for items
-                "   border-radius: 10px;"
-                "   margin-top: 2px;"
-                "}"
-    );
+        "QListWidget {"
+        "   background: transparent;"
+        "   border: none;"
+        "   color: white;"
+        "}"
+        "QListWidget::item {"
+        "   background: rgba(0, 0, 0, 0.3);"  // Semi-transparent dark background for items
+        "   border-radius: 10px;"
+        "   margin-top: 2px;"
+        "}"
+        );
 
     mainLayout->addWidget(inputField);
     mainLayout->addWidget(taskList);

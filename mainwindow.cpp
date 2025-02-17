@@ -153,4 +153,3 @@ QSize MainWindow::sizeHint() const
 MainWindow::~MainWindow()
 {
 }
-

@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QListWidget>
+#include <QMainWindow>
 
 class TaskInputWidget : public QWidget
 {
