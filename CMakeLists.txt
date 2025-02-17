@@ -18,6 +18,8 @@ set(PROJECT_SOURCES
         mainwindow.h
         taskinputwidget.h
         taskinputwidget.cpp
+        taskitemwidget.h
+        taskitemwidget.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

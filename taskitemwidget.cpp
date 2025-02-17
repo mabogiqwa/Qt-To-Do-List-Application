@@ -1,7 +1,7 @@
 #include "taskitemwidget.h"
 
-TaskItemWidget::TaskItemWidget(QWidget *parent)
-    : QWidget{parent}
+TaskItemWidget::TaskItemWidget(const QString &text, QWidget *parent)
+    : QWidget(parent)
 {
 
 }
