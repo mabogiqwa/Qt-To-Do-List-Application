@@ -53,7 +53,7 @@ void TaskInputWidget::handleTaskInput() {
     QString taskText = inputField->text().trimmed();
     if (!taskText.isEmpty()) {
         QListWidgetItem *item = new QListWidgetItem(taskText);
-        taskList->addItem(item);
+        //taskList->addItem(item);
         inputField->clear();
 
         if (taskList->count() == 1 && placeholderImage) {
