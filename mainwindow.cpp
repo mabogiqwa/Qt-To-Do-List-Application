@@ -170,12 +170,19 @@ void MainWindow::setupTasksArea()
         "  width: 10px;"
         "}"
     );
+
+    QWidget *viewport = new QWidget;
+    viewport->setStyleSheet("background: transparent");
+    tasksScrollArea->setViewport(viewport);
+
+
     tasksScrollArea->setWidgetResizable(true);
     tasksScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     tasksScrollArea->move(25, 85);
     tasksScrollArea->resize(560, 390);
 
     tasksContainer = new QWidget(tasksScrollArea);
+    tasksContainer->setStyleSheet("background: transparent");
     tasksLayout = new QVBoxLayout(tasksContainer);
     tasksLayout->setSpacing(5);
     tasksLayout->setContentsMargins(0,0,0,0);

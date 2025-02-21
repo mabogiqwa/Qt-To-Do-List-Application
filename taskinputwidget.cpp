@@ -37,7 +37,7 @@ void TaskInputWidget::setupUI() {
         "   color: white;"
         "}"
         "QListWidget::item {"
-        "   background: rgba(0, 0, 0, 0.3);"  // Semi-transparent dark background for items
+        "   background: #808080;"  // Semi-transparent dark background for items
         "   border-radius: 10px;"
         "   margin-top: 2px;"
         "}"
