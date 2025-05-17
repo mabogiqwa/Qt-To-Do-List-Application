@@ -2,7 +2,7 @@
 
 A modern, sleek task management application built with Qt/C++ that helps you organize your daily tasks with a beautiful user interface.
 
-![Application Screenshot](screenshots/app_screenshot.png)
+![Application Screenshot](images/ui.png)
 
 ## Features
 
